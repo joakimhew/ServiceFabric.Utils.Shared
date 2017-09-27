@@ -1,10 +1,12 @@
-﻿using ServiceFabric.Utils.Shared.Extensions;
-using System.Net;
+﻿#if NET461
+
+using System.Web.Http;
 using System.Net.Http;
+using System.Web.Http.Results;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Results;
+using System.Net;
+using ServiceFabric.Utils.Shared.Extensions;
 
 namespace ServiceFabric.Utils.Shared
 {
@@ -16,7 +18,7 @@ namespace ServiceFabric.Utils.Shared
         private readonly HttpRequestMessage _requestMessage;
         private readonly HttpStatusCode _code;
         private readonly object _message;
-        private readonly object _info;
+        private readonly string _info;
 
         /// <summary>
         /// Creates a new intsance of <see cref="ApiHttpActionResult"/> based on a <see cref="HttpRequestMessage"/>.
@@ -26,7 +28,7 @@ namespace ServiceFabric.Utils.Shared
         /// <param name="message">The response message used in <see cref="ApiHttpResponseMessage"/></param>
         /// <param name="additionalInfo">Any additional info that you might want in your <see cref="ApiHttpResponseMessage"/></param>
         public ApiHttpActionResult(HttpRequestMessage request, HttpStatusCode statusCode,
-            object message, object additionalInfo = null)
+            object message, string additionalInfo = null)
         {
             _requestMessage = request;
             _code = statusCode;
@@ -43,9 +45,12 @@ namespace ServiceFabric.Utils.Shared
             var responseMessageResult = new ResponseMessageResult(
                 _requestMessage.CreateApiResponse(_code, _message, _info));
 
+
             var response = await responseMessageResult.ExecuteAsync(cancellationToken);
 
             return response;
         }
     }
 }
+
+#endif

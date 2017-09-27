@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿#if NET461
+
+using System.Net;
 using System.Net.Http;
 
 namespace ServiceFabric.Utils.Shared.Extensions
@@ -12,3 +14,5 @@ namespace ServiceFabric.Utils.Shared.Extensions
         }
     }
 }
+
+#endif

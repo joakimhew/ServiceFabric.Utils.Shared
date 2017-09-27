@@ -1,14 +1,16 @@
-﻿using System.Net;
-using System.Net.Http;
-using System.Net.Http.Formatting;
+﻿#if NET461
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Text;
 
 namespace ServiceFabric.Utils.Shared
 {
-    /// <summary>
-    /// Custom API response message in the form of a camel case JSON object ({ statusCode, message, additionalInfo })
-    /// </summary>
     public class ApiHttpResponseMessage : HttpResponseMessage
     {
         /// <summary>
@@ -38,3 +40,6 @@ namespace ServiceFabric.Utils.Shared
         }
     }
 }
+
+
+#endif
