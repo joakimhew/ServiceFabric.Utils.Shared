@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceFabric.Utils.Shared.Core.Extensions
+namespace ServiceFabric.Utils.Shared.Extensions
 {
     public static class HttpContentExtensions
     {

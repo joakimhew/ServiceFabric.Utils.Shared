@@ -1,0 +1,18 @@
+﻿#if NET461
+
+using System.Net;
+using System.Net.Http;
+
+namespace ServiceFabric.Utils.Shared.Extensions
+{
+    public static class HttpRequestMessageExtensions
+    {
+        public static HttpResponseMessage CreateApiResponse(this HttpRequestMessage request,
+            HttpStatusCode statusCode, object message, object additionalInfo = null)
+        {
+            return new ApiHttpResponseMessage(statusCode, message, additionalInfo);
+        }
+    }
+}
+
+#endif

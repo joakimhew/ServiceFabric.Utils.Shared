@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿#if NETSTANDARD2_0
 
-namespace ServiceFabric.Utils.Shared.Core
+using System.Threading.Tasks;
+using System.Net;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace ServiceFabric.Utils.Shared
 {
     public class ApiActionResult : IActionResult
     {
@@ -41,3 +41,5 @@ namespace ServiceFabric.Utils.Shared.Core
         }
     }
 }
+
+#endif
