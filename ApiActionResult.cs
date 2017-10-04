@@ -1,4 +1,4 @@
-﻿#if NETSTANDARD2_0
+﻿
 
 using System.Threading.Tasks;
 using System.Net;
@@ -41,5 +41,3 @@ namespace ServiceFabric.Utils.Shared
         }
     }
 }
-
-#endif

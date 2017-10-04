@@ -19,7 +19,7 @@ namespace ServiceFabric.Utils.Shared.Extensions
         /// <typeparam name="TExpectedMessageType">Expected type of the <see cref="ApiResponseMessage{TMessageType}.Message"/> 
         /// property in <see cref="HttpContent"/></typeparam>
         /// <param name="content"><see cref="HttpContent"/> to read from and deserialize</param>
-        /// <returns><see cref="ApiResponseMessage{TMessageType}"/> with the <see cref="ApiResponseMessage{TMessageType}.Message"/> 
+        /// <returns><see cref="ApiResponseMessage{TMessageType}"/> with the <see cref="ApiResponseMessage{TMessageType}.Message"/>     
         /// property set to <typeparam name="TExpectedMessageType"/></returns>
         public static async Task<ApiResponseMessage<TExpectedMessageType>> ReadAsApiResponseMessageAsync<TExpectedMessageType>(this HttpContent content)
         {
