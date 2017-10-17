@@ -119,7 +119,7 @@ namespace ServiceFabric.Utils.Shared.Helpers
                     builder.Append(ConvertSimpleProperty(prop, item));
                 }
 
-                else if (typeof(IList).IsAssignableFrom(rootType))
+                else
                 {
                     builder.Append(ConvertNonPrimitiveProperty(owner, item));
                 }
