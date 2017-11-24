@@ -41,6 +41,7 @@ namespace ServiceFabric.Utils.Shared.Tests.Helpers
             }
 
             public Guid? Id { get; set; }
+            public Guid? TestId { get; set; }
             public List<Guid> Ids { get; set; }
             public List<NestedTest> Nested { get; set; }
             public bool? IsSomething { get; set; }

@@ -23,16 +23,17 @@ namespace ServiceFabric.Utils.Shared.Helpers
                 var propType = prop.PropertyType;
                 var propValue = prop.GetValue(model);
 
+                if (propValue == null)
+                    continue;
+
                 if (IsSimple(propType))
                 {
                     builder.Append(ConvertSimpleProperty(prop, propValue));
                 }
-
                 else if (isDateTime(propType))
                 {
                     builder.Append(ConvertDateTimeProperty(prop, (DateTime)propValue));
                 }
-
                 else if (typeof(IList).IsAssignableFrom(propType))
                 {
                     var listType = propType.GetGenericArguments().Single();
