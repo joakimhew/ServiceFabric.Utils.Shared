@@ -40,10 +40,10 @@ namespace ServiceFabric.Utils.Shared.Tests.Helpers
                 Ids = new List<Guid>();
             }
 
-            public Guid Id { get; set; }
+            public Guid? Id { get; set; }
             public List<Guid> Ids { get; set; }
             public List<NestedTest> Nested { get; set; }
-            public bool IsSomething { get; set; }
+            public bool? IsSomething { get; set; }
             public DateTime Time { get; set; }
         }
 

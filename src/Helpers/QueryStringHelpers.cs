@@ -130,11 +130,17 @@ namespace ServiceFabric.Utils.Shared.Helpers
 
         private static bool IsSimple(Type type)
         {
+            var underlyingType = Nullable.GetUnderlyingType(type);
+            if (underlyingType != null)
+            {
+                return IsSimple(underlyingType);
+            }
+
             return type.IsPrimitive
               || type.IsEnum
-              || type.Equals(typeof(string))
-              || type.Equals(typeof(Guid))
-              || type.Equals(typeof(decimal));
+              || type.IsAssignableFrom(typeof(string))
+              || type.IsAssignableFrom(typeof(Guid))
+              || type.IsAssignableFrom(typeof(decimal));
         }
 
         private static bool isDateTime(Type type)
