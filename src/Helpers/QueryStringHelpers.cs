@@ -18,8 +18,10 @@ namespace ServiceFabric.Utils.Shared.Helpers
             var modelProperties = modelType.GetProperties();
 
             // Iterate through each property in the model checking if it's a simple, primitive, type or a collection.
-            foreach(var prop in modelProperties)
+            for (var i = 0; i < modelProperties.Length; i++)
             {
+                var prop = modelProperties[i];
+
                 var propType = prop.PropertyType;
                 var propValue = prop.GetValue(model);
 
@@ -45,13 +47,13 @@ namespace ServiceFabric.Utils.Shared.Helpers
 
                     builder.Append(generic.Invoke(null, new[] { model, prop, propValue }));
                 }
+                else
+                {
+                    builder.Append(ConvertNonPrimitiveProperty(prop, propValue));
+                }
             }
 
-            // Used to remove the last & character as this is appended when converting.
-            // todo: Find a better solution
-            builder.Length -= 1;
-
-            return builder.ToString();
+            return builder.ToString().TrimEnd('&');
         }
 
    
